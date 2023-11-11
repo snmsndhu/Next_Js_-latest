@@ -9,5 +9,7 @@ export function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  return NextResponse.json({ id: 1, name: body.name });
+  if (!body.name)
+    return NextResponse.json({ error: "name is required" }, { status: 400 });
+  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
 }
