@@ -2,20 +2,33 @@
 import React, { useState } from "react";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 
-interface CloundinaryResult {
-  public_id: String;
+interface CloudinaryResult {
+  public_id: string;
 }
 
 const UploadPage = () => {
   const [publicId, setPublicId] = useState("");
+
   return (
     <>
-      {publicId && <CldImage></CldImage>}
+      {publicId && (
+        <CldImage
+          src={publicId}
+          width={270}
+          height={180}
+          alt="A coffee image"
+        />
+      )}
       <CldUploadWidget
-        uploadPreset=""
+        uploadPreset="whjrmsio"
+        options={{
+          sources: ["local"],
+          multiple: false,
+          maxFiles: 5,
+        }}
         onUpload={(result, widget) => {
           if (result.event !== "success") return;
-          const info = result.info as CloundinaryResult;
+          const info = result.info as CloudinaryResult;
           setPublicId(info.public_id);
         }}
       >
