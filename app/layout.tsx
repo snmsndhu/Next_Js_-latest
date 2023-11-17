@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
-import { SessionProvider } from "next-auth/react";
+import AuthProvider from "./auth/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
-        <SessionProvider>
+        <AuthProvider>
           <NavBar />
           <main className="p-5"> {children}</main>
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   );
