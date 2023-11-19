@@ -15,6 +15,7 @@ const WelcomeTemplate = ({ name }: { name: string }) => {
       <Body>
         <Container>
           <Text>Hello {name}</Text>
+          <Link>www.hello.com</Link>
         </Container>
       </Body>
     </Html>
