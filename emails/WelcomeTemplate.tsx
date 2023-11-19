@@ -8,8 +8,17 @@ import {
   Preview,
 } from "@react-email/components";
 
-const WelcomeTemplate = () => {
-  return <div>WelcomeTemplate</div>;
+const WelcomeTemplate = ({ name }: { name: string }) => {
+  return (
+    <Html>
+      <Preview>Welcome aboard !</Preview>
+      <Body>
+        <Container>
+          <Text>Hello {name}</Text>
+        </Container>
+      </Body>
+    </Html>
+  );
 };
 
 export default WelcomeTemplate;
