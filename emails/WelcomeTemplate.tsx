@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react-dom/server";
+import React, { CSSProperties } from "react";
 import {
   Html,
   Body,
